@@ -12,7 +12,7 @@
 
     {{ if .Paginator.HasPrev }}
         <!-- Paginated. Append page number to title -->
-        {{ $title = printf "%s / %s" .Paginator $siteTitle }}
+        {{ $title = printf "%s - %s" .Paginator $siteTitle }}
     {{ else }}
         {{ $title = $siteTitle}}
     {{ end }}
@@ -28,13 +28,13 @@
 
     {{ if .Paginator.HasPrev }}
         <!-- Add page number-->
-        {{ $title = $title | append " / " .Paginator }}
+        {{ $title = $title | append " - " .Paginator }}
     {{ end }} 
 
-    {{ $title = $title | append " / " $siteTitle }}
+    {{ $title = $title | append " - " $siteTitle }}
     {{ $title = delimit $title "" }}
 {{- else -}}
-    {{ $title = printf "%s / %s" $title $siteTitle }}
+    {{ $title = printf "%s - %s" $title $siteTitle }}
 {{- end -}}
 
 {{ return $title }}
